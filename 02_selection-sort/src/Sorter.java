@@ -4,24 +4,24 @@ public class Sorter {
         Integer[] orderedArray = new Integer[array.length];
 
         for (int i = 0; i < array.length; i++) {
-            int highest = findHighestValue(array);
-            removeFirst(array, highest);
-            orderedArray[i] = highest;
+            int lowest = findLowestValue(array);
+            removeFirst(array, lowest);
+            orderedArray[i] = lowest;
         }
 
         return orderedArray;
     }
 
-    private static Integer findHighestValue(Integer[] array) {
-        Integer highest = null;
+    private static Integer findLowestValue(Integer[] array) {
+        Integer lowest = null;
         for (Integer integer : array) {
             if (integer != null) {
-                if (highest == null || integer > highest) {
-                    highest = integer;
+                if (lowest == null || integer < lowest) {
+                    lowest = integer;
                 }
             }
         }
-        return highest;
+        return lowest;
     }
 
     private static void removeFirst(Integer[] array, int toBeRemoved) {
